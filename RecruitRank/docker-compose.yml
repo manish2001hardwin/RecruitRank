@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  ai_service:
+    build: ./ai_service
+    container_name: recruitrank-ai
+    restart: unless-stopped
+    # cache the downloaded embedding model outside the container so it
+    # survives rebuilds (only downloaded once, needs internet that one time)
+    volumes:
+      - model_cache:/root/.cache
+    ports:
+      - "8000:8000"   # optional to expose; backend reaches it via internal network either way
+
+  backend:
+    build: ./backend/RecruitRank.Api
+    container_name: recruitrank-backend
+    restart: unless-stopped
+    depends_on:
+      - ai_service
+    environment:
+      - PythonService__BaseUrl=http://ai_service:8000
+    ports:
+      - "5000:8080"   # optional to expose directly; nginx also reaches it internally
+
+  frontend:
+    build: ./frontend
+    container_name: recruitrank-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"       # this is the port your team actually opens in the browser
+
+volumes:
+  model_cache:

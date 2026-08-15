@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f6f8;
+  color: #1a1a2e;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+h1 { font-size: 24px; margin-bottom: 4px; }
+.subtitle { color: #666; margin-bottom: 24px; }
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+input[type="file"] { margin-top: 8px; }
+button {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+}
+button:disabled { background: #a5a5c0; cursor: not-allowed; }
+.candidate-card {
+  border-left: 4px solid #4f46e5;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.candidate-header { display: flex; justify-content: space-between; align-items: center; }
+.score { font-size: 20px; font-weight: 700; color: #4f46e5; }
+.skills-row { margin: 8px 0; font-size: 13px; }
+.skill-match { color: #0a8a3f; }
+.skill-missing { color: #c62828; }
+.meta { font-size: 13px; color: #555; margin-top: 4px; }
+.error-box {
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
